@@ -10,6 +10,11 @@ const items = ref([
     icon: "pi pi-palette",
     route: "/admin/project-ideas",
   },
+  {
+    label: "Blogs",
+    icon: "pi pi-palette",
+    route: "/admin/blogs",
+  },
 ]);
 </script>
 <template>

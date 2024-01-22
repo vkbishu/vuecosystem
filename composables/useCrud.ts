@@ -4,14 +4,11 @@ interface CrudConfig {
   page: any;
 }
 
-interface ProductIdea {
-  id?: number;
-  name: string;
-  description: string;
-  image: string | null;
-  tags: string;
-}
-
+/**
+ * CREATE, RED, UPDATE, DELETE Composable.
+ * @param config
+ * @returns
+ */
 export const useCrud = async (config: CrudConfig) => {
   const { table, api, page } = config;
   /**
@@ -29,7 +26,7 @@ export const useCrud = async (config: CrudConfig) => {
   /**
    *  Create Data
    */
-  const create = async (formData: ProductIdea) => {
+  const create = async (formData: any) => {
     await useFetch(api, {
       method: "POST",
       body: formData,
@@ -47,7 +44,7 @@ export const useCrud = async (config: CrudConfig) => {
   /**
    *  Update Data
    */
-  const update = async (formData: ProductIdea, id: string | number) => {
+  const update = async (formData: any, id: string | number) => {
     await $fetch(`${api}/${id}`, {
       method: "PUT",
       body: formData,

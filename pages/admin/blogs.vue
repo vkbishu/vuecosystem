@@ -22,7 +22,7 @@ const {
   deleteData,
   formSchema,
   tableSchema,
-} = await useProjectIdeaForm();
+} = await useBlogs();
 
 const addNew = () => {
   editId.value = null;
