@@ -95,7 +95,7 @@ const edit = async (id) => {
     <Card no-padding>
       <AdminDataTable
         :loading="pending"
-        :value="data.value.data"
+        :value="data.data"
         :table-schema="tableSchema"
         @edit-record="edit"
         @delete-record="deleteRecord"

@@ -17,8 +17,7 @@ export const useCrud = async (config: CrudConfig) => {
   const { data, pending, refresh } = await useAsyncData(
     table,
     async () => {
-      const { data } = await useFetch(api);
-      return data;
+      return await $fetch(api);
     },
     { watch: [page] }
   );
@@ -27,7 +26,7 @@ export const useCrud = async (config: CrudConfig) => {
    *  Create Data
    */
   const create = async (formData: any) => {
-    await useFetch(api, {
+    await $fetch(api, {
       method: "POST",
       body: formData,
     });

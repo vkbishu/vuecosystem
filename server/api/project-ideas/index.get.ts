@@ -6,7 +6,6 @@ export default defineEventHandler(async (event) => {
   const columns = "*";
 
   const { data } = await client.from(table).select(columns);
-  return {
-    data,
-  };
+
+  return { data };
 });

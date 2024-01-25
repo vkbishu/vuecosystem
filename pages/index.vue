@@ -4,12 +4,7 @@
       title="VueJS Project Ideas"
       description=" Lorem ipsum dolor sit amet consectetur adipisicing elit."
     >
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-        distinctio repellat fugiat mollitia? Reiciendis, ratione quibusdam,
-        reprehenderit ipsa asperiores architecto eaque deserunt officia cum
-        voluptatum voluptatem libero sapiente explicabo provident!
-      </p>
+      <ProjectIdeas />
     </Section>
 
     <Section
