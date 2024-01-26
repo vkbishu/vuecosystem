@@ -21,6 +21,12 @@ export const useProjectIdea = async () => {
       validation: "required",
     },
     {
+      $formkit: "select",
+      name: "exp_level",
+      label: "Experience Level",
+      options: ["beginner", "intermediate", "expert"],
+    },
+    {
       $formkit: "textarea",
       name: "description",
       label: "Description",

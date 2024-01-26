@@ -2,7 +2,7 @@
   <div>
     <Section
       title="VueJS Project Ideas"
-      description=" Lorem ipsum dolor sit amet consectetur adipisicing elit."
+      description="Improve your VueJS skills by building these amazing projects"
     >
       <ProjectIdeas />
     </Section>
