@@ -30,7 +30,7 @@
     <div class="grid grid-cols-5 gap-3 mt-3" v-if="pending">
       <ProjectIdeasLoading v-for="n in 10" />
     </div>
-    <InfiniteLoading @infinite="loadData" :key="pKey">
+    <InfiniteLoading @infinite="loadProjectIdeas" :key="pKey">
       <template #complete>
         <div class="text-slate-300 p-3 text-center">No more records</div>
       </template>
@@ -40,10 +40,7 @@
 
 <script setup>
 import InfiniteLoading from "v3-infinite-loading";
-// const level = ref("all");
-// const term = ref("");
 const tags = ["vuejs", "tailwindcss", "supabase", "nuxtjs"];
-//const selectedTags = ref([]);
 const options = ref([
   { name: "All", value: "all" },
   { name: "Beginner", value: "beginner" },
@@ -76,31 +73,28 @@ let page = 1;
 const per_page = 10;
 const ideas = ref([]);
 const pending = ref(false);
+const { loadData } = useProjectIdeas();
 
-const loadData = ($state) => {
+const loadProjectIdeas = async ($state) => {
   pending.value = true;
 
-  $fetch("/api/project-ideas", {
-    method: "GET",
-    params: {
-      page,
-      per_page,
-      filter: filter.value,
-    },
+  loadData({
+    filter: filter.value,
+    page,
+    per_page,
   }).then((res) => {
-    if (!res.data || res.data < per_page) {
+    if (!res || res.length < per_page) {
       $state && $state.complete();
     } else {
-      ideas.value = [...ideas.value, ...res.data];
       $state && $state.loaded();
     }
+    ideas.value = [...ideas.value, ...res];
     pending.value = false;
     page++;
   });
 };
 
 const pKey = ref(Date.now());
-
 const debouncedLoadData = useDebounceFn(() => {
   ideas.value = [];
   page = 1;
