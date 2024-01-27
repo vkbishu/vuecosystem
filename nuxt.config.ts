@@ -23,6 +23,7 @@ export default defineNuxtConfig({
     "nuxt-primevue",
     "@formkit/nuxt",
     "@nuxtjs/supabase",
+    "@vueuse/nuxt",
   ],
   tailwindcss: {},
   headlessui: {
