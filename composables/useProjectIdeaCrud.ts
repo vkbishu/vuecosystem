@@ -2,7 +2,7 @@
  *  Project Idea Form
  *
  */
-export const useProjectIdea = async () => {
+export const useProjectIdeaCrud = async () => {
   const page = ref(1);
   const moduleName = "Project Ideas";
 

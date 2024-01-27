@@ -4,6 +4,9 @@
       title="VueJS Project Ideas"
       description="Improve your VueJS skills by building these amazing projects"
     >
+      <template #action>
+        <NuxtLink to="/project-ideas" class="text-primary">View all</NuxtLink>
+      </template>
       <ProjectIdeas />
     </Section>
 
